@@ -1,0 +1,33 @@
+.configurationPanel {
+    background-color: #007bff4d;
+    width:25%;
+}
+
+.configurationForm {
+    margin: 10px;
+}
+
+.armiesInput { 
+    width: 18% !important;
+    display: inline !important;
+}
+
+.directiveButton {
+    width: 32% !important;
+    height: 130px !important;
+    margin-bottom:10px;
+}
+
+imgs{
+    widows: inherit;
+    height: inherit;
+}
+
+.slider{
+    margin-top: 18px;
+    margin-left: 25px;
+}
+
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}

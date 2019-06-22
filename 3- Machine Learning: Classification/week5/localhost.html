@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="./localhost_files/graph-creator.css">
+    <link rel="stylesheet" href="./localhost_files/panel.css">
+    <link rel="stylesheet" href="./localhost_files/all.css">
+    <link rel="stylesheet" href="./localhost_files/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./localhost_files/bootstrap-slider.min.css">
+  </head>
+
+  <body style="cursor: auto;">
+    <!-- start of winner modal -->
+    <div class="modal fade" id="winningModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">End Of Game.</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div>
+                  <p id="winner"></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="refresh" type="button" class="btn btn-secondary" data-dismiss="modal">Srart new game.</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of winner modal-->
+    <!-- start of modal-->
+      <div id="helpModal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Instructions for playing Game.</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <ol>
+                  <li>drag/scroll to translate/zoom the graph.</li>
+                  <li>shift-click on graph to create a node.</li>
+                  <li>shift-click on a node and then drag to another node to connect them with a directed edge</li>
+                  <li>shift-click on a node to change its title.</li>
+                  <li>click on node or edge and press backspace/delete to delete.</li>
+                  <li>Bonus node will be marked yellow and its number will be written on the configuration panel.</li>
+                </ol>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of modal-->
+    <div class="container" id="root" style="max-width: 100%;">
+      <div class="row">
+          <div id="graph" style="width:75%;height:100%">
+              <div class="alert alert-danger alert-dismissible show" id="error" style="margin-bottom: 0px; display: none;" role="alert">
+                  <p id="errorMsg"> </p>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+              <div id="toolbox">
+                <input type="file" id="hidden-file-upload">
+                <input id="upload-input" type="image" title="upload graph" src="./localhost_files/upload-icon.png" alt="upload graph">
+                <input type="image" id="download-input" title="download graph" src="./localhost_files/download-icon.png" alt="download graph">
+                <input type="image" id="delete-graph" title="delete graph" src="./localhost_files/trash-icon.png" alt="delete graph">
+              </div>
+            <svg width="100%" height="904"><defs><marker viewBox="0 -5 10 10" refX="32" markerWidth="3.5" markerHeight="3.5" orient="auto"><path d="M0,-5L10,0L0,5"></path></marker><marker viewBox="0 -5 10 10" refX="7" markerWidth="3.5" markerHeight="3.5" orient="auto"><path d="M0,-5L10,0L0,5"></path></marker></defs><g class="graph" transform="translate(58,129) scale(1)"><path class="link dragline hidden" d="M0,0L0,0"></path><g><path class="link" d="M907,160L908,471"></path><path class="link" d="M908,471L531,629"></path><path class="link" d="M531,629L155,457"></path><path class="link" d="M155,457L161,159"></path><path class="link" d="M161,159L522,-4"></path><path class="link" d="M522,-4L155,457"></path><path class="link" d="M522,-4L531,629"></path><path class="link" d="M522,-4L908,471"></path><path class="link" d="M522,-4L907,160"></path><path class="link" d="M907,160L531,629"></path><path class="link" d="M907,160L155,457"></path><path class="link" d="M907,160L161,159"></path><path class="link" d="M908,471L155,457"></path><path class="link" d="M161,159L908,471"></path><path class="link" d="M531,629L161,159"></path></g><g><g class="conceptG" transform="translate(522,-4)" data-toggle="tooltip" data-placement="top" title="Node id: 0" data-original-title="Node id: 0"><circle r="50" style="fill: rgb(211, 158, 0);"></circle><text text-anchor="middle" dy="-0">1</text></g><g class="conceptG" transform="translate(155,457)" data-toggle="tooltip" data-placement="top" title="Node id: 2" data-original-title="Node id: 2"><circle r="50" style="fill: rgb(211, 158, 0);"></circle><text text-anchor="middle" dy="-0">1</text></g><g class="conceptG" transform="translate(161,159)" data-toggle="tooltip" data-placement="top" title="Node id: 3" data-original-title="Node id: 3"><circle r="50" style="fill: rgb(211, 158, 0);"></circle><text text-anchor="middle" dy="-0">1</text></g><g class="conceptG" transform="translate(907,160)" data-toggle="tooltip" data-placement="top" title="Node id: 4" data-original-title="Node id: 4"><circle r="50" style="fill: rgb(211, 158, 0);"></circle><text text-anchor="middle" dy="-0">11</text></g><g class="conceptG" transform="translate(908,471)" data-toggle="tooltip" data-placement="top" title="Node id: 5" data-original-title="Node id: 5"><circle r="50" style="fill: rgb(41, 154, 67);"></circle><text text-anchor="middle" dy="-0">13</text></g><g class="conceptG" transform="translate(531,629)" data-toggle="tooltip" data-placement="top" title="Node id: 6" data-original-title="Node id: 6"><circle r="50" style="fill: rgb(211, 158, 0);"></circle><text text-anchor="middle" dy="-0">6</text></g></g></g></svg></div>
+            <div class="configurationPanel">
+              <div class="configurationForm">
+                    <div>
+                      <p id="nextPlayer">Player 1 turn.</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="player">Player</label>
+                      <select class="form-control controller" id="selectPlayer" disabled="">
+                        <option disabled="" selected="" value="selectOption1">Select Player</option>
+                        <option style="background-color: #d39e00" value="player1">Player 1</option>
+                        <option style="background-color: #299a43" value="player2">Player 2</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="player">Partitions</label>
+                      <textarea class="form-control controller" id="partitions" disabled="">5 0 2 3 4 5 6
+</textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary controller" id="submit" disabled="">Add Partitions</button>
+                    <div class="row">
+                      <div class="col"> 
+                        <div class="form-group" style="margin-top: 25px">
+                            <label for="Algorithms">Player1 Algorithm</label>
+                            <select class="form-control controller" id="p1Algo" disabled="">
+                              <option disabled="" selected="" value="selectAction">Select Algorithm</option>
+                              <option>Human</option>
+                              <option>Passive</option>
+                              <option>Aggressive</option>
+                              <option>Nearly Passive</option>
+                              <option>A*</option>
+                              <option>RTA*</option>
+                              <option>Greedy</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="col">
+                          <div class="form-group" style="margin-top: 25px">
+                              <label for="Algorithms">Player2 Algorithm</label>
+                              <select class="form-control controller" id="p2Algo" disabled="">
+                                <option disabled="" selected="" value="selectAction">Select Algorithm</option>
+                                <option>Human</option>
+                                <option>Passive</option>
+                                <option>Aggressive</option>
+                                <option>Nearly Passive</option>
+                                <option>A*</option>
+                                <option>RTA*</option>
+                                <option>Greedy</option>
+                              </select>
+                          </div>
+                      </div>
+                    </div>
+                    
+                    <div class="human" id="controls" style="display: none;">
+                      <button id="addBonus" class="btn btn-success directiveButton" style=""><i class="fas fa-angle-double-up fa-5x"></i></button>
+                      <button id="addAttack" class="btn btn-danger directiveButton"><img src="./localhost_files/attack.svg"></button>
+                      <button id="addMove" class="btn btn-primary directiveButton"><i class="fas fa-walking fa-5x"></i></button>
+                      
+                      <p class="text-left">Available bonus is <span id="bonusVal" class="badge badge-secondary hoverSpans">0</span> given to node 
+                        <span id="bonusNode" class="badge badge-secondary hoverSpans">-1</span> </p>
+                      
+                      <p class="text-left">Attack detected from node <span id="attackerNode" class="badge badge-secondary hoverSpans">-1</span> 
+                        to <span id="attackedNode" class="badge badge-secondary hoverSpans">-1</span> with armies 
+                        <input type="text" id="attackedArmyVal" class="form-control armiesInput"></p>
+                      
+                        <p class="text-left">Move detected from node <span id="moveFromNode" class="badge badge-secondary hoverSpans">-1</span> 
+                        to <span id="moveToNode" class="badge badge-secondary hoverSpans">-1</span>  with armies 
+                        <input type="text" id="armyVal" class="form-control armiesInput"></p>
+                    </div>
+                    
+                    <div class="human" hidden="">
+                        <div class="form-group">
+                            <label for="action">Human Action</label>
+                            <select class="form-control" id="selectAction">
+                              <option disabled="" selected="" value="selectAction">Select Action</option>
+                              <option>Attack</option>
+                              <option>Move</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                  <label for="source">Source</label>
+                                  <input type="text" class="form-control" id="source">
+                                </div>
+                                <div class="col">
+                                  <label for="target">Target</label>
+                                  <input type="text" class="form-control" id="target">
+                                </div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="Amount">Armies to move</label>
+                                  <input type="text" class="form-control" id="armies">
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary controller btn-lg btn-block" id="initialize" disabled="">
+                                    <i class="fas fa-check"></i> Start</button>
+                            </div>
+                            <div class="col">
+                                <div style="float:left">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" id="doAction" disabled="">
+                                        <i class="fas fa-play"></i> Play</button>
+                                </div>
+                                <div style="float:right; padding-top:5px; width:80px">
+                                    <select class="form-control" id="speed">
+                                      <option selected="" disabled="">Speed</option>
+                                      <option>2</option>
+                                      <option>5</option>
+                                      <option>10</option>
+                                      <option>15</option>
+                                      <option>20</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="col" width="2px">
+                                <select class="form-control" id="speed">
+                                  <option selected disabled>Select Speed(in seconds)</option>
+                                  <option>2</option>
+                                  <option>5</option>
+                                  <option>10</option>
+                                  <option>15</option>
+                                  <option>20</option>
+                                </select>
+                            </div>
+                            -->
+                        </div>
+                </div>
+            </div>
+      </div>
+    </div>
+    <script src="./localhost_files/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./localhost_files/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="./localhost_files/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="./localhost_files/d3.v3.js" charset="utf-8"></script>
+    <script src="./localhost_files/FileSaver.min.js"></script>
+    <script src="./localhost_files/bootstrap-slider.min.js"></script>
+    <script src="./localhost_files/graph-creator.js"></script>
+  
+
+
+</body></html>
